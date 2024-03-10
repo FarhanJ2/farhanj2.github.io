@@ -1,9 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import steelhawks from "../assets/steelhawks.png";
-import { Image } from "astro:assets";
-import ProjectsPage from "./projects.astro";
 ---
 
 <Layout title="Farhan's Portfolio Page">
@@ -44,12 +41,12 @@ import ProjectsPage from "./projects.astro";
 				<Image src={steelhawks} alt="Steelhawks" />
 				<Image src={steelhawks} alt="Steelhawks" /> -->
         <Card
-          href="/projects"
+          href="/home/projects"
           title="Projects"
           body="View projects I've been working on"
         />
         <Card
-          href="/about"
+          href="/home/about"
           title="About Me"
           body="A little insight into who I am"
         />
