@@ -24,7 +24,7 @@ export default function Navbar() {
         />
       </svg>
       <div>
-        <img src={steelhawks} alt="Steelhawks" />
+        <img src={steelhawks.src} alt="Steelhawks" />
       </div>
 
       <h1 className="text-lg font-bold">
