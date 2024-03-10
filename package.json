@@ -15,8 +15,14 @@
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "astro": "^4.4.15",
+    "astro-navbar": "^2.3.1",
+    "feather-icons": "^4.29.1",
+    "framer-motion": "^11.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.4.2"
+  },
+  "devDependencies": {
+    "@types/feather-icons": "^4.29.4"
   }
 }

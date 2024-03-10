@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import steelhawks from "../assets/steelhawks.png";
+import steelhawks from '../../public/steelhawks.png';
 import { Image } from "astro:assets";
-import ProjectsPage from "./projects.astro";
+import Showcase from '../components/Showcase.tsx';
 ---
 
 <Layout title="Farhan's Portfolio Page">
@@ -37,13 +37,9 @@ import ProjectsPage from "./projects.astro";
       </defs>
     </svg>
     <ul>
-      <h1>Welcome to <span class="text-gradient">Farhan Jamil's Page</span></h1>
+      <h1>My <span class="text-gradient">Projects</span></h1>
       <ul role="list" class="link-card-grid">
-        <!-- <Image src={steelhawks} alt="Steelhawks" />
-				<Image src={steelhawks} alt="Steelhawks" />
-				<Image src={steelhawks} alt="Steelhawks" />
-				<Image src={steelhawks} alt="Steelhawks" /> -->
-        <Card
+        <!-- <Card
           href="/projects"
           title="Projects"
           body="View projects I've been working on"
@@ -52,7 +48,9 @@ import ProjectsPage from "./projects.astro";
           href="/about"
           title="About Me"
           body="A little insight into who I am"
-        />
+        /> -->
+        <Showcase title="Test" description="TeSTT", image={steelhawks.src}, github="wasd" link="wasda"/>
+        <!-- <Image src={steelhawks} alt="Steelhawks" /> -->
       </ul>
     </ul>
   </main>
