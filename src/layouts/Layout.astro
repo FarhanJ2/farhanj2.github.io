@@ -1,57 +1,100 @@
 ---
-// import Navbar from '../components/Navbar';
-import Nav from '../components/Nav.astro';
 interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<main>
-			<!-- <Navbar /> -->
-			<slot />
-			<!-- All the pages will be rendered here -->
-		</main>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <main>
+            <slot />
+            <!-- All the pages will be rendered here -->
+        </main>
+    </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+    :root {
+        background-image: url("../assets/wallpaper.jpeg");
+    }
+    html {
+        font-family: system-ui, sans-serif;
+        background: #13151a;
+    }
+    .text-center {
+        font-size: 1.25rem;
+        display: inline-block;
+        margin-right: 500px;
+    }
+    .terminal-container {
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+        /* margin-top: 1rem; Add margin to separate from navbar */
+    }
+    .terminal-inputfield {
+        background: #1f2937;
+        color: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        width: 80%;
+        height: 80%;
+        overflow: auto;
+    }
+    .terminal-output {
+        /* background: #1f2937;
+        color: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        width: 80%;
+        height: 80%;
+        overflow: auto; */
+    }
+    .bash-icon {
+        width: 25px;
+        height: 25px;
+        margin-left: 500px;
+        margin-right: 10px;
+    }
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background: #1f2937;
+        color: white;
+    }
+    .traffic-lights {
+        display: flex;
+        gap: 0.5rem; /* Adjust the gap between traffic lights */
+        margin-left: 10px;
+    }
+    .traffic-light {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Border color */
+    }
+    .red {
+        background-color: #ff5f56; /* Red color */
+    }
+    .yellow {
+        background-color: #ffbd2e; /* Yellow color */
+    }
+    .green {
+        background-color: #27c93f; /* Green color */
+    }
 </style>
