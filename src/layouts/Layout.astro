@@ -6,13 +6,34 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
@@ -55,13 +76,23 @@ const { title } = Astro.props;
         overflow: auto;
     }
     .terminal-output {
-        /* background: #1f2937;
-        color: white;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        width: 80%;
-        height: 80%;
-        overflow: auto; */
+        /* max-width: 4xl;
+        border-left-width: 2;
+        border-right-width: 2;
+        border-bottom-width: 2;
+        border-color: slate-800;
+        border-bottom-left-radius: md;
+        border-bottom-right-radius: md;
+        margin-left: auto;
+        margin-right: auto;
+        color: gray-300;
+        font-size: xl;
+        padding: 2;
+        overflow-y: auto;
+        height: 55vh;
+        background-color: black;
+        background-opacity: 75;
+        box-sizing: border-box; */
     }
     .bash-icon {
         width: 25px;
@@ -76,6 +107,8 @@ const { title } = Astro.props;
         padding: 10px;
         background: #1f2937;
         color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
     .traffic-lights {
         display: flex;
