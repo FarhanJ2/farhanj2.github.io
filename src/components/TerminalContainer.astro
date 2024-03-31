@@ -1,15 +1,16 @@
 ---
-import Navbar from './Navbar.astro';
-import InputHandler from '../components/InputHandler.tsx';
-import Start from './cmds/Start.astro';
+import Navbar from "./Navbar.astro";
+import InputHandler from "../components/InputHandler.tsx";
+import Welcome from "./cmds/Welcome.astro";
+import Date from "./cmds/GetDate.astro";
 ---
 
-<div>
-    <div class="terminal-container">
+<div class="terminal-container">
+    <div class="terminal-background"></div>
+    <div class="terminal-content">
         <Navbar />
-        <!-- <div class="max-w-4xl border-x-2 border-b-2 border-slate-800 rounded-b-md mx-auto text-gray-300 text-xl p-2 overflow-y-auto h-55vh bg-black bg-opacity-75 box"></div> -->
-        <div class="terminal-output">
-            <InputHandler />
-        </div>
+        <Welcome />
+        <Date />
+        <InputHandler />
     </div>
 </div>

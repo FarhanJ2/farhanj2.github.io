@@ -1,0 +1,12 @@
+---
+const getDate = () => {
+    const date = new Date();
+    const options = { hour12: false }; // Specify 24-hour format
+    const time = date.toLocaleTimeString(undefined, options);
+    return date.toDateString() + ' ' + time;
+};
+---
+
+<div>
+    <h1 class="text-output">Last login: {getDate()} on ttys010</h1>
+</div>

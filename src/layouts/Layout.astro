@@ -56,63 +56,81 @@ const { title } = Astro.props;
     .text-center {
         font-size: 1.25rem;
         display: inline-block;
+        align-self: center;
         margin-right: 500px;
     }
+    .text-output {
+        padding-left: 20px;
+        color: white;
+        font-size: 1.25rem;
+        /* display: inline-block; */
+        align-self: center;
+    }
+    .text-input {
+        padding-left: 5px;
+        color: rgba(160, 214, 252, 1);
+        font-size: 1rem;
+        /* display: inline-block; */
+        align-self: center;
+    }
     .terminal-container {
-        justify-self: center;
+        position: relative;
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 40vh;
-        /* margin-top: 1rem; Add margin to separate from navbar */
+        height: 80vh;
+        margin-top: 80px;
     }
-    .terminal-inputfield {
-        background: #1f2937;
-        color: white;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        width: 80%;
-        height: 80%;
+    .terminal-background {
+        position: absolute;
+        align-self: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 67.5%;
+        height: 95%;
+        background: #13151a;
+        opacity: 0.8;
+    }
+    .terminal-content {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
         overflow: auto;
     }
-    .terminal-output {
-        /* max-width: 4xl;
-        border-left-width: 2;
-        border-right-width: 2;
-        border-bottom-width: 2;
-        border-color: slate-800;
-        border-bottom-left-radius: md;
-        border-bottom-right-radius: md;
-        margin-left: auto;
-        margin-right: auto;
-        color: gray-300;
-        font-size: xl;
-        padding: 2;
-        overflow-y: auto;
-        height: 55vh;
-        background-color: black;
-        background-opacity: 75;
-        box-sizing: border-box; */
+    .terminal-inputfield {
+        color: white;
+        padding-left: 20px;
+    }
+    .terminal-input {
+        background: transparent;
+        color: white;
+        font-size: 2rem;
+        border: none;
+        outline: none;
     }
     .bash-icon {
         width: 25px;
         height: 25px;
+        align-self: center;
         margin-left: 500px;
         margin-right: 10px;
     }
     .navbar {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        /* align-items: center; */
         padding: 10px;
         background: #1f2937;
         color: white;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        /* border-top-left-radius: 10px; */
+        /* border-top-right-radius: 10px; */
     }
     .traffic-lights {
+        align-self: center;
         display: flex;
-        gap: 0.5rem; /* Adjust the gap between traffic lights */
+        gap: 0.5rem;
         margin-left: 10px;
     }
     .traffic-light {
