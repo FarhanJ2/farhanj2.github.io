@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.5.6",
     "@astrojs/react": "^3.0.10",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/open-sans": "^5.0.27",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@vscode/codicons": "^0.0.35",
@@ -28,6 +29,6 @@
   },
   "devDependencies": {
     "@types/feather-icons": "^4.29.4",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.3"
   }
 }

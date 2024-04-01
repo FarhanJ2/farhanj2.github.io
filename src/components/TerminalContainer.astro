@@ -3,14 +3,26 @@ import Navbar from "./Navbar.astro";
 import InputHandler from "../components/InputHandler.tsx";
 import Welcome from "./cmds/Welcome.astro";
 import Date from "./cmds/GetDate.astro";
+import Bio from "./cmds/GetBio.astro";
+import GetProjects from "./cmds/GetProjects.astro";
+import GetSkills from "./cmds/GetSkills.astro";
 ---
 
 <div class="terminal-container">
-    <div class="terminal-background"></div>
+    <Navbar />
     <div class="terminal-content">
-        <Navbar />
         <Welcome />
         <Date />
-        <InputHandler />
+        <Bio />
+        <!-- <GetProjects /> -->
+        <!-- <GetSkills /> -->
+        <InputHandler client:load />
     </div>
 </div>
+
+<style>
+    :root {
+        background-image: url("../assets/wallpaper.jpeg");
+        object-fit: cover;
+    }
+</style>

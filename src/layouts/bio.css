@@ -1,0 +1,46 @@
+.bio-image-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1em;
+}
+.bio-image {
+    border-radius: 50%;
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    outline: 2px solid gold;
+}
+.title {
+    font-size: 1.5em;
+    margin: 0;
+    color: white;
+}
+.highlight {
+    color: #f0c674;
+}
+.bio-text {
+    color: white;
+    font-size: 1.2em;
+    margin: 0;
+    /* text-align: center; */
+}
+.socials {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 1em; */
+}
+.social {
+    margin: 0 0.5em;
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social:hover {
+    transform: rotate(360deg);
+}

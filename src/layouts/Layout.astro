@@ -1,4 +1,5 @@
 ---
+import "@fontsource/open-sans"; // Defaults to weight 400.
 interface Props {
     title: string;
 }
@@ -46,21 +47,30 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-    :root {
+    /* :root {
         background-image: url("../assets/wallpaper.jpeg");
-    }
+        object-fit: cover;
+    } */
     html {
         font-family: system-ui, sans-serif;
         background: #13151a;
     }
+    .tac-one-regular {
+        font-family: "Tac One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
     .text-center {
+        user-select: none;
         font-size: 1.25rem;
-        display: inline-block;
-        align-self: center;
-        margin-right: 500px;
+        align-self: top;
+        color: white;
+        margin-right: auto;
     }
     .text-output {
-        padding-left: 20px;
+        user-select: none;
+        /* padding-left: 20px; */
         color: white;
         font-size: 1.25rem;
         /* display: inline-block; */
@@ -80,7 +90,7 @@ const { title } = Astro.props;
         height: 80vh;
         margin-top: 80px;
     }
-    .terminal-background {
+    /* .terminal-background {
         position: absolute;
         align-self: center;
         top: 0;
@@ -92,12 +102,22 @@ const { title } = Astro.props;
         height: 95%;
         background: #13151a;
         opacity: 0.8;
-    }
+    } */
     .terminal-content {
-        position: relative;
+        position: absolute;
         z-index: 1;
         padding: 20px;
-        overflow: auto;
+        margin-top: 80px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        display: flex;
+        justify-content: flex-start; /* Align content to the left */
+        align-items: flex-start; /* Align items to the left */
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.8);
+        background: transparent;
+        width: 80%; /* Adjust width as needed */
+        max-height: 60vh; /* Limit maximum height to fit within container */
     }
     .terminal-inputfield {
         color: white;
@@ -111,27 +131,37 @@ const { title } = Astro.props;
         outline: none;
     }
     .bash-icon {
+        margin-top: 13px;
         width: 25px;
         height: 25px;
-        align-self: center;
-        margin-left: 500px;
+        align-self: top;
+        align-items: center;
+        margin-left: auto;
         margin-right: 10px;
+        color: white;
     }
     .navbar {
+        position: absolute;
+        z-index: 1;
         display: flex;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 82%;
+        height: 95%;
         justify-content: space-between;
-        /* align-items: center; */
         padding: 10px;
         background: #1f2937;
-        color: white;
-        /* border-top-left-radius: 10px; */
-        /* border-top-right-radius: 10px; */
+        opacity: 0.9;
+        border-radius: 10px;
     }
     .traffic-lights {
-        align-self: center;
         display: flex;
         gap: 0.5rem;
-        margin-left: 10px;
+        margin-top: 25px;
+        margin-left: 25px;
     }
     .traffic-light {
         width: 12px;
