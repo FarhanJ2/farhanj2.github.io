@@ -1,21 +1,18 @@
 ---
+import InputHandler from "./InputHandler";
 import Navbar from "./Navbar.astro";
-import InputHandler from "../components/InputHandler.tsx";
 import Welcome from "./cmds/Welcome.astro";
-import Date from "./cmds/GetDate.astro";
-import Bio from "./cmds/GetBio.astro";
-import GetProjects from "./cmds/GetProjects.astro";
-import GetSkills from "./cmds/GetSkills.astro";
+import GetDate from "./cmds/GetDate.astro";
+import GetBio from "./cmds/GetBio.tsx";
+
 ---
 
 <div class="terminal-container">
     <Navbar />
     <div class="terminal-content">
         <Welcome />
-        <Date />
-        <Bio />
-        <!-- <GetProjects /> -->
-        <!-- <GetSkills /> -->
+        <GetDate />
+        <GetBio />
         <InputHandler client:load />
     </div>
 </div>

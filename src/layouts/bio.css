@@ -42,5 +42,5 @@
 }
 
 .social:hover {
-    transform: rotate(360deg);
+    color: blueviolet;
 }
