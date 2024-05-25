@@ -21,12 +21,12 @@ const GetSkills = () => {
                 <div className="skill-bar"></div>
                 <p>100%</p>
             </div>
-            {/* <div className="skill">
-        <BiLogoTypescript size={50} style={{ color: "white" }} />
-        <h1>Typescript</h1>
-        <div class="skill-bar" style="width: 80;"></div>
-        <p>80%</p>
-    </div> */}
+            <div className="skill">
+                <BiLogoTypescript size={50} style={{ color: "white" }} />
+                <h1>Typescript</h1>
+                <div className="skill-bar"></div>
+                <p>80%</p>
+            </div>
             <div className="skill">
                 <FaUnity size={50} style={{ color: "white" }} />
                 <h1>Unity</h1>

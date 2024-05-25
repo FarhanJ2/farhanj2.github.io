@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { VscTriangleUp, VscChevronRight } from "react-icons/vsc";
 import GetProjects from "./cmds/GetProjects.tsx";
 import GetSkills from "./cmds/GetSkills.tsx";
@@ -9,12 +9,25 @@ const InputHandler = () => {
     const [prevCommands, setPrevCommands] = useState<string[]>([]);
     const [currentCommand, setCurrentCommand] = useState<string>("bio");
     const [commandOutput, setCommandOutput] = useState<JSX.Element[]>([]);
+    const outputContainerRef = useRef<HTMLDivElement>(null);
+    const lastCommandRef = useRef<HTMLDivElement>(null);
+
+    const [currentCommandIndex, setCurrentCommandIndex] = useState<number>(0);
+
+    useEffect(() => {
+        if (lastCommandRef.current) {
+            lastCommandRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [commandOutput]);
 
     const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>): void => {
         console.log("Command submitted:", command);
-        setCommandOutput([...commandOutput, renderComponent(command)]);
+        setCommandOutput((prevOutput) => [
+            ...prevOutput,
+            renderComponent(command),
+        ]);
         setCurrentCommand(command);
-        setPrevCommands([...prevCommands, command]);
+        setPrevCommands((prevCommands) => [...prevCommands, command]);
         setCommand("");
     };
 
@@ -33,7 +46,8 @@ const InputHandler = () => {
             case "skills":
                 return <GetSkills />;
             case "clear":
-                return (setCommandOutput([]), <div className="text-input">Terminal cleared.</div>);
+                setCommandOutput([]);
+                return <div className="text-input">Terminal cleared.</div>;
             default:
                 return (
                     <div className="text-input">
@@ -46,16 +60,27 @@ const InputHandler = () => {
 
     return (
         <div>
-            <div className="command-output">
-                {commandOutput}
-            </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-                <VscTriangleUp size={25} color="white" />
-                <h1 className="text-input">
-                    ~/dev/farhanj2.github.io/{currentCommand}
-                </h1>
+            <div className="command-output" ref={outputContainerRef}>
+                {commandOutput.map((output, index) => (
+                    <div
+                        key={index}
+                        ref={
+                            index === commandOutput.length - 1
+                                ? lastCommandRef
+                                : null
+                        }
+                    >
+                        {output}
+                    </div>
+                ))}
             </div>
             <div className="terminal-inputfield">
+                <div style={{ display: "flex", alignItems: "center" }}>
+                    <VscTriangleUp size={25} color="white" />
+                    <h1 className="text-input">
+                        ~/dev/farhanj2.github.io/{currentCommand}
+                    </h1>
+                </div>
                 <VscChevronRight size={25} />
                 <input
                     placeholder="Type a command..."
@@ -68,11 +93,15 @@ const InputHandler = () => {
                             handleSubmit(e);
                         }
                         if (e.key === "ArrowUp") {
-                            prevCommands.length > 0
-                                ? setCommand(
-                                      prevCommands[prevCommands.length - 1]
-                                  )
-                                : null;
+                            if (e.key === "ArrowUp") {
+                                if (currentCommandIndex > 0) {
+                                    setCurrentCommandIndex(currentCommandIndex - 1);
+                                    setCommand(prevCommands[currentCommandIndex - 1]);
+                                } else {
+                                    setCurrentCommandIndex(prevCommands.length);
+                                    setCommand(prevCommands[prevCommands.length - 1]);
+                                }
+                            }
                         }
                         if (e.key === "ArrowDown") {
                             setCommand("");
