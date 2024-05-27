@@ -15,3 +15,12 @@ This is a portfolio website designed in the style of a macOS terminal. Users int
 
 ## Access
 Visit [here](https://farhaninator.me) to view the website.
+
+### Commands
+Here are some example commands to get you started.
+
+- **help**: Displays a list of available commands.
+- **bio**: Shows information about me.
+- **projects**: Shows a list of projects I've worked on.
+- **contact**: Shows information on ways to contact me.
+- **clear**: Clears the terminal.
