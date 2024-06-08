@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import TerminalContainer from "../components/TerminalContainer.astro";
 import Startup from "../components/Startup.jsx";
-const loading = false;
+const { title } = Astro.props;
 ---
 
-<Layout title="Farhan's GNU/Bash">
-  {loading ? <Startup client:load /> : <TerminalContainer />}
+<Layout title={title}>
+	<Startup client:load />
 </Layout>
