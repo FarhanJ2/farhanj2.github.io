@@ -31,8 +31,33 @@ const InputHandler = () => {
         setCommand("");
     };
 
+    const getDate = () => {
+        const date = new Date();
+
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+        const dayName = days[date.getDay()];
+        const monthName = months[date.getMonth()];
+        const day = String(date.getDate()).padStart(2, ' '); // Pad single digit days with a space
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+        const year = date.getFullYear();
+    
+        const timezone = date.toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2];
+    
+        return `${dayName} ${monthName} ${day} ${hours}:${minutes}:${seconds} ${timezone} ${year}`;
+    }
+
     const renderComponent = (command: string) => {
         switch (command.toLowerCase()) {
+            case "date":
+                return (
+                    <div className="text-input">
+                        {getDate()}
+                    </div>
+                );
             case "help":
                 return (
                     <div className="text-input">

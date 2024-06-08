@@ -1,18 +1,13 @@
 ---
 import InputHandler from "./InputHandler";
 import Navbar from "./Navbar.astro";
-import Welcome from "./cmds/Welcome.astro";
-import GetDate from "./cmds/GetDate.astro";
-import GetBio from "./cmds/GetBio.tsx";
-
+import Welcome from "./cmds/Welcome.astro";;
 ---
 
 <div class="terminal-container">
     <Navbar />
     <div class="terminal-content">
         <Welcome />
-        <GetDate />
-        <GetBio />
         <InputHandler client:load />
     </div>
 </div>
