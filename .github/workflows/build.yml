@@ -1,0 +1,30 @@
+name: Decrypt secrets and set environment variables
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set Spotify Client Keys
+      env:
+        PUBLIC_SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+        PUBLIC_SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+      run: |
+        echo "PUBLIC_SPOTIFY_CLIENT_ID=$PUBLIC_SPOTIFY_CLIENT_ID" >> $GITHUB_ENV
+        echo "PUBLIC_SPOTIFY_CLIENT_SECRET=$PUBLIC_SPOTIFY_CLIENT_SECRET" >> $GITHUB_ENV
+
+    - name: Set Birthday Config
+      env:
+        PUBLIC_BIRTHDAY: ${{ secrets.BIRTHDAY }}
+      run: |
+        echo "PUBLIC_BIRTHDAY=$PUBLIC_BIRTHDAY" >> $GITHUB_ENV
+
+    - name: Print Environment Variables
+      run: |
+        echo "PUBLIC_SPOTIFY_CLIENT_ID=$PUBLIC_SPOTIFY_CLIENT_ID"
+        echo "PUBLIC_SPOTIFY_CLIENT_SECRET=$PUBLIC_SPOTIFY_CLIENT_SECRET"
+        echo "PUBLIC_BIRTHDAY=$PUBLIC_BIRTHDAY"

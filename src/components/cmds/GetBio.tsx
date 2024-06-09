@@ -3,13 +3,29 @@ import "../../layouts/bio.css";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const GetBio = () => {
+    const getAge = () => {
+        const birthday = import.meta.env.PUBLIC_BIRTHDAY;
+        const dates = birthday !== undefined ? birthday.split("/") : null;
+
+        // console.log(birthday);
+
+        const today = new Date();
+        const birthDate = new Date(dates?.[2] ? Number(dates[2]) : 1970, dates?.[0] ? Number(dates[0]) : 1, dates?.[1] ? Number(dates[1]) : 1);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
     return (
         <div>
             <div className="bio-image-container">
                 <img className="bio-image" src={pfp.src} alt="Image of ME" />
 
                 <p style={{ padding: 20 }} className="bio-text">
-                    <span className="highlight">16</span> years old
+                    <span className="highlight">{getAge()}</span> years old
                 </p>
                 <p style={{ padding: 20 }} className="bio-text">
                     Born and Raised in{" "}

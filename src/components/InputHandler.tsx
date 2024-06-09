@@ -7,7 +7,7 @@ import Bio from "./cmds/GetBio.tsx";
 const InputHandler = () => {
     const [command, setCommand] = useState<string>("");
     const [prevCommands, setPrevCommands] = useState<string[]>([]);
-    const [currentCommand, setCurrentCommand] = useState<string>("bio");
+    const [currentCommand, setCurrentCommand] = useState<string>("");
     const [commandOutput, setCommandOutput] = useState<JSX.Element[]>([]);
     const outputContainerRef = useRef<HTMLDivElement>(null);
     const lastCommandRef = useRef<HTMLDivElement>(null);
@@ -35,35 +35,54 @@ const InputHandler = () => {
         const date = new Date();
 
         const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    
+        const months = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ];
+
         const dayName = days[date.getDay()];
         const monthName = months[date.getMonth()];
-        const day = String(date.getDate()).padStart(2, ' '); // Pad single digit days with a space
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        const seconds = String(date.getSeconds()).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, " "); // Pad single digit days with a space
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        const seconds = String(date.getSeconds()).padStart(2, "0");
         const year = date.getFullYear();
-    
-        const timezone = date.toLocaleTimeString('en-us',{timeZoneName:'short'}).split(' ')[2];
-    
+
+        const timezone = date
+            .toLocaleTimeString("en-us", { timeZoneName: "short" })
+            .split(" ")[2];
+
         return `${dayName} ${monthName} ${day} ${hours}:${minutes}:${seconds} ${timezone} ${year}`;
-    }
+    };
 
     const renderComponent = (command: string) => {
         switch (command.toLowerCase()) {
             case "date":
-                return (
-                    <div className="text-input">
-                        {getDate()}
-                    </div>
-                );
+                return <div className="text-input">{getDate()}</div>;
             case "help":
                 return (
-                    <div className="text-input">
-                        Try "welcome", "date", "bio", "projects", or "skills".
+                    <div
+                        className="text-input"
+                        style={{ whiteSpace: "pre-wrap" }}
+                    >
+                        <p>Available commands:</p>
+                        <p>     date:       Show current date and time</p>
+                        <p>     bio:        Show your biography</p>
+                        <p>     projects:   Show list of projects</p>
+                        <p>     skills:     Show list of skills</p>
                     </div>
                 );
+
             case "bio":
                 return <Bio />;
             case "projects":
@@ -120,11 +139,17 @@ const InputHandler = () => {
                         if (e.key === "ArrowUp") {
                             if (e.key === "ArrowUp") {
                                 if (currentCommandIndex > 0) {
-                                    setCurrentCommandIndex(currentCommandIndex - 1);
-                                    setCommand(prevCommands[currentCommandIndex - 1]);
+                                    setCurrentCommandIndex(
+                                        currentCommandIndex - 1
+                                    );
+                                    setCommand(
+                                        prevCommands[currentCommandIndex - 1]
+                                    );
                                 } else {
                                     setCurrentCommandIndex(prevCommands.length);
-                                    setCommand(prevCommands[prevCommands.length - 1]);
+                                    setCommand(
+                                        prevCommands[prevCommands.length - 1]
+                                    );
                                 }
                             }
                         }
