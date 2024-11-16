@@ -13,7 +13,7 @@ import {
 import { FiExternalLink } from "react-icons/fi";
 import { TbBrandReactNative } from "react-icons/tb";
 import { BiLogoTypescript } from "react-icons/bi";
-import { SiCsharp, SiAstro } from "react-icons/si";
+import { SiCsharp, SiAstro, SiKotlin, SiOpencv } from "react-icons/si";
 import projectData from "../../assets/projects.json";
 
 interface ProjectCard {
@@ -24,6 +24,8 @@ interface ProjectCard {
     image?: string;
     github?: string;
     url?: string;
+    imageWidth?: string;
+    imageHeight?: string;
 }
 
 const GetProjects = () => {
@@ -149,6 +151,24 @@ const GetProjects = () => {
                                         size={25}
                                     />
                                 )}
+                                {project.skills.includes("kotlin") && (
+                                    <SiKotlin
+                                        style={{
+                                            color: "white",
+                                            padding: "5px",
+                                        }}
+                                        size={25}
+                                    />
+                                )}
+                                {project.skills.includes("opencv") && (
+                                    <SiOpencv
+                                        style={{
+                                            color: "white",
+                                            padding: "5px",
+                                        }}
+                                        size={25}
+                                    />
+                                )}
                             </div>
                             <h2 className="project-title">Links: </h2>
                             <div
@@ -201,8 +221,8 @@ const GetProjects = () => {
                                     src={project.image}
                                     alt="Photo of Project"
                                     style={{
-                                        width: "500px",
-                                        height: "500px",
+                                        width: project.imageWidth || "500px",
+                                        height: project.imageHeight ||"500px",
                                         // borderRadius: "50%",
                                         padding: "30px",
                                     }}

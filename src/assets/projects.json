@@ -6,22 +6,28 @@
         "skills": ["react", "astro"],
         "image": "/projects/portfolio.png",
         "github": "https://github.com/FarhanJ2/farhanj2.github.io",
-        "url": "https://farhaninator.me"
+        "url": "https://farhaninator.me",
+        "imageWidth": "426px",
+        "imageHeight": "240px"
     },
     {
         "id": 2,
         "name": "Steel Hawks Rest API Server",
         "description": "This project was created during the 2023-2024 season of the Steel Hawks. It is a REST API server that provides data for the scouting subteam to use. This is directly connected to the Steel Hawks Scout App.",
         "skills": ["python", "react", "flask"],
-        "image": "/projects/steelhawks.png"
+        "image": "/projects/scoutweb.png",
+        "imageWidth": "540px",
+        "imageHeight": "360px"
     },
     {
         "id": 3,
         "name": "Steel Hawks Scout App",
         "description": "This project was created during the 2023-2024 season of the Steel Hawks. It is a mobile app for Android and iOS and is written in React Native. It is used by the scouting subteam to collect data on other teams during competitions.",
         "skills": ["react-native", "typescript", "swift", "java", "ios", "android"],
-        "image": "/projects/steelhawks.png",
-        "github": "https://github.com/steelhawks/ScoutApp-React-Native-2023"
+        "image": "/projects/hawkscout.png",
+        "github": "https://github.com/steelhawks/ScoutApp-React-Native-2023",
+        "imageWidth": "295.38px",
+        "imageHeight": "640px"
     },
     {
         "id": 4,
@@ -30,6 +36,28 @@
         "skills": ["unity", "csharp"],
         "image": "/projects/game.png",
         "github": "https://github.com/FarhanJ2/the-road-not-taken",
-        "url": "https://farhanj2.github.io/the-road-not-taken"
+        "url": "https://farhanj2.github.io/the-road-not-taken",
+        "imageWidth": "480px",
+        "imageHeight": "360px"
+    },
+    {
+        "id": 5,
+        "name": "Steel Hawks - HawkControl",
+        "description": "A summer project created for the Steel Hawks, this is a special Apple only application that allows the drive team to control the robot using an iPhone or iPad.",
+        "skills": ["swift", "ios"],
+        "image": "/projects/hawkcontrol.jpeg",
+        "github": "https://github.com/steelhawks/HawkControl",
+        "imageWidth": "480px",
+        "imageHeight": "360px"
+    },
+    {
+        "id": 6,
+        "name": "Steel Hawks - HawkRider",
+        "description": "A summer project where I solo rewrote our 2024 competition robot code in Kotlin and incorporated new features such as auto align to intaking notes and control via our iPad app, HawkControl. Using OpenCV and Python, I was sucessfully able to implement auto align to intaking notes.",
+        "skills": ["kotlin", "java", "opencv", "python"],
+        "image": "/projects/hawkrider.png",
+        "github": "https://github.com/steelhawks/Prac2024",
+        "imageWidth": "480px",
+        "imageHeight": "360px"
     }
 ]

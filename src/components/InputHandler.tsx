@@ -8,7 +8,7 @@ const InputHandler = () => {
     const [command, setCommand] = useState<string>("");
     const [prevCommands, setPrevCommands] = useState<string[]>([]);
     const [currentCommand, setCurrentCommand] = useState<string>("");
-    const [commandOutput, setCommandOutput] = useState<JSX.Element[]>([]);
+    const [commandOutput, setCommandOutput] = useState<JSX.Element[]>([<Bio/>]);
     const outputContainerRef = useRef<HTMLDivElement>(null);
     const lastCommandRef = useRef<HTMLDivElement>(null);
 
