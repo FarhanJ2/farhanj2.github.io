@@ -25,7 +25,7 @@ const GetBio = () => {
                 <img className="bio-image" src={pfp.src} alt="Image of ME" />
 
                 <p style={{ padding: 20 }} className="bio-text">
-                    <span className="highlight">{getAge()}</span> years old
+                    <span className="highlight">17</span> years old
                 </p>
                 <p style={{ padding: 20 }} className="bio-text">
                     Born and Raised in{" "}
